@@ -1,0 +1,231 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@500;600;700;800;900&display=swap");
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+  background: #030303;
+  font-family: Inter, ui-sans-serif, system-ui, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background: #030303;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #030303;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.24);
+  color: #fff;
+}
+
+.font700 {
+  font-weight: 700;
+}
+
+.font800 {
+  font-weight: 800;
+}
+
+.font900 {
+  font-weight: 900;
+}
+
+.tracking-0 {
+  letter-spacing: 0;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.chrome-text {
+  color: #f7f7f7;
+  background: linear-gradient(180deg, #fff 0%, #f1f1f1 36%, #a6a6a6 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  text-shadow: 0 0 44px rgba(255, 255, 255, 0.06);
+}
+
+@supports (-webkit-background-clip: text) {
+  .chrome-text {
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+.waveform-bg {
+  background:
+    radial-gradient(circle at 50% 12%, rgba(255, 255, 255, 0.16), transparent 30%),
+    repeating-linear-gradient(90deg, transparent 0 64px, rgba(255, 255, 255, 0.035) 65px 66px, transparent 67px 128px);
+  mask-image: radial-gradient(circle at center, black, transparent 72%);
+}
+
+.services-scroll-stage {
+  height: 440vh;
+}
+
+.services-sticky-viewport {
+  position: sticky;
+  top: 100px;
+  height: calc(100vh - 120px);
+  display: grid;
+  align-content: center;
+  justify-items: center;
+  overflow: hidden;
+}
+
+.services-sticky-heading {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  z-index: 5;
+  width: min(760px, 90vw);
+  transform: translateX(-50%);
+  text-align: center;
+  pointer-events: none;
+}
+
+.services-card-layer {
+  position: relative;
+  width: min(1080px, 86vw);
+  height: clamp(360px, 52vh, 470px);
+  margin-top: clamp(96px, 13vh, 120px);
+}
+
+.service-scroll-card {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  background: #151515;
+  transform-origin: top center;
+  opacity: 1;
+  overflow: hidden;
+  will-change: transform;
+  backface-visibility: hidden;
+}
+
+.service-card-copy {
+  padding: clamp(22px, 3.2vw, 36px);
+  padding-bottom: clamp(26px, 3.6vw, 42px);
+}
+
+.service-card-copy .mb-9 {
+  margin-bottom: clamp(1rem, 2vh, 1.6rem);
+}
+
+.service-card-copy .mb-8 {
+  margin-bottom: clamp(0.9rem, 1.8vh, 1.35rem);
+}
+
+.service-card-copy .mt-9 {
+  margin-top: clamp(1rem, 2vh, 1.45rem);
+}
+
+.service-scroll-card h3 {
+  font-size: clamp(2rem, 3.4vw, 3rem);
+  line-height: 0.95;
+}
+
+.service-scroll-card p {
+  margin-top: clamp(0.9rem, 1.8vh, 1.2rem);
+  font-size: clamp(0.82rem, 1vw, 0.94rem);
+  line-height: 1.6;
+}
+
+.service-card-copy a {
+  padding: 0.8rem 1.2rem;
+  font-size: 0.78rem;
+}
+
+.service-card-image {
+  margin: clamp(12px, 1.4vw, 18px) !important;
+  min-height: 0 !important;
+}
+
+.cta-spotlight {
+  background:
+    linear-gradient(100deg, transparent 29%, rgba(255, 255, 255, 0.09) 47%, transparent 57%),
+    radial-gradient(circle at 50% 36%, rgba(255, 255, 255, 0.13), transparent 34%),
+    linear-gradient(180deg, #030303 0%, #101010 52%, #030303 100%);
+  filter: blur(10px);
+}
+
+@media (max-width: 767px) {
+  .services-scroll-stage {
+    height: 440vh;
+  }
+
+  .services-sticky-viewport {
+    top: 72px;
+    height: calc(100vh - 86px);
+  }
+
+  .services-card-layer {
+    width: min(92vw, 430px);
+    height: clamp(500px, calc(100vh - 112px), 600px);
+    min-height: 0;
+    margin-top: 0;
+  }
+
+  .service-scroll-card {
+    grid-template-rows: minmax(0, 1fr) minmax(155px, 32%);
+    border-radius: 28px;
+  }
+
+  .service-card-copy {
+    padding: 20px;
+    padding-bottom: 22px;
+  }
+
+  .service-scroll-card h3 {
+    font-size: clamp(1.55rem, 8vw, 2.15rem);
+    line-height: 0.96;
+  }
+
+  .service-scroll-card p {
+    margin-top: 0.85rem;
+    font-size: 0.78rem;
+    line-height: 1.5;
+  }
+
+  .service-card-copy .mt-9 {
+    margin-top: 0.9rem;
+  }
+
+  .service-card-copy a {
+    padding: 0.7rem 0.95rem;
+    font-size: 0.75rem;
+  }
+
+  .service-card-image {
+    margin: 0 14px 14px !important;
+    min-height: 0 !important;
+    height: 100%;
+    border-radius: 22px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+  }
+}
