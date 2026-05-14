@@ -5,11 +5,11 @@ import { CalendarDays, ChevronDown, ChevronLeft, ChevronRight, Headphones, Music
 import "./styles.css";
 
 const djImages = {
-  booth: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1600&q=85&sat=-80",
-  cdj: "https://images.unsplash.com/photo-1516873240891-4bf014598ab4?auto=format&fit=crop&w=1600&q=85&sat=-90",
-  mixer: "https://images.unsplash.com/photo-1571266028243-d220c6a7edbf?auto=format&fit=crop&w=1600&q=85&sat=-90",
-  headphones: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=85&sat=-95",
-  monitors: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1600&q=85&sat=-85"
+  booth: "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&w=1600&q=88&sat=-90",
+  cdj: "https://images.unsplash.com/photo-1516873240891-4bf014598ab4?auto=format&fit=crop&w=1600&q=88&sat=-95",
+  mixer: "https://images.unsplash.com/photo-1571266028243-d220c6a7edbf?auto=format&fit=crop&w=1600&q=88&sat=-95",
+  decks: "https://images.unsplash.com/photo-1516280440614-37939bbacd81?auto=format&fit=crop&w=1600&q=88&sat=-95",
+  setup: "https://images.unsplash.com/photo-1598488035139-bdbb2231ce04?auto=format&fit=crop&w=1600&q=88&sat=-92"
 };
 
 const services = [
@@ -28,7 +28,7 @@ const services = [
   {
     title: "ინდივიდუალური ტრენინგი",
     text: "ინდივიდუალური ტრენინგი შენს დონესა და მიზნებზე მორგებით. ვიმუშავებთ ტექნიკაზე, სეტის აწყობაზე, მიქსინგზე და იმ დეტალებზე, რომლებიც რეალურად ცვლის შესრულების ხარისხს.",
-    image: djImages.headphones,
+    image: djImages.decks,
     icon: Headphones
   },
   {
@@ -58,15 +58,15 @@ const faqs = [
 
 const fadeUp = {
   hidden: { opacity: 0, y: 50 },
-  show: { opacity: 1, y: 0, transition: { duration: 1, ease: [0.22, 1, 0.36, 1] } }
+  show: { opacity: 1, y: 0, transition: { duration: 1.18, ease: [0.16, 1, 0.3, 1] } }
 };
 
 const stagger = {
   hidden: {},
   show: {
     transition: {
-      staggerChildren: 0.13,
-      delayChildren: 0.12
+      staggerChildren: 0.16,
+      delayChildren: 0.16
     }
   }
 };
@@ -81,9 +81,9 @@ function Button({ children, href = "#contact", className = "" }) {
     <motion.a
       href={href}
       onClick={openBooking}
-      whileHover={{ scale: 1.035 }}
-      whileTap={{ scale: 0.985 }}
-      transition={{ duration: 0.35, ease: [0.22, 1, 0.36, 1] }}
+      whileHover={{ scale: 1.025 }}
+      whileTap={{ scale: 0.99 }}
+      transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
       className={`inline-flex items-center justify-center gap-2 rounded-full border border-white/80 bg-gradient-to-b from-white to-[#cfcfcf] px-7 py-4 text-sm font800 text-black shadow-[inset_0_1px_0_rgba(255,255,255,0.9),0_18px_46px_rgba(255,255,255,0.08)] transition-all duration-500 hover:border-white hover:from-white hover:to-white ${className}`}
     >
       <CalendarDays size={17} />
@@ -166,8 +166,8 @@ function HeroWave() {
       {bars.map((height, i) => (
         <motion.span
           key={i}
-          animate={{ scaleY: [0.72, 1.04, 0.82, 1], opacity: [0.22, 0.52, 0.34, 0.42] }}
-          transition={{ duration: 5.2 + (i % 7) * 0.18, repeat: Infinity, ease: "easeInOut", delay: i * 0.055 }}
+          animate={{ scaleY: [0.74, 0.96, 0.82, 1], opacity: [0.2, 0.44, 0.3, 0.38] }}
+          transition={{ duration: 6.8 + (i % 7) * 0.22, repeat: Infinity, ease: "easeInOut", delay: i * 0.075 }}
           className="origin-center rounded-full bg-gradient-to-b from-white/65 via-white/[0.28] to-white/[0.08] shadow-[0_0_24px_rgba(255,255,255,0.06)]"
           style={{ height, width: "clamp(5px, 0.75vw, 8px)" }}
         />
@@ -216,7 +216,7 @@ function ServiceCardShell({ service, index, total, progress }) {
           </div>
         </div>
       <div className="service-card-image group/image relative min-h-[320px] overflow-hidden rounded-[28px] bg-black md:m-5 md:min-h-0">
-          <img src={service.image} alt={service.title} className="h-full w-full object-cover grayscale transition-transform duration-[1800ms] ease-out group-hover/image:scale-[1.045]" />
+          <img src={service.image} alt={service.title} className="h-full w-full object-cover grayscale transition-transform duration-[2600ms] ease-out group-hover/image:scale-[1.035]" />
           <div className="absolute inset-0 bg-gradient-to-r from-black/20 via-transparent to-black/[0.35]" />
           <div className="absolute inset-0 ring-1 ring-inset ring-white/10" />
         </div>
@@ -256,9 +256,9 @@ function Services() {
     offset: ["start start", "end end"]
   });
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 64,
-    damping: 26,
-    mass: 1
+    stiffness: 42,
+    damping: 34,
+    mass: 1.15
   });
 
   return (
@@ -305,7 +305,7 @@ function About() {
       <div className="mx-auto grid max-w-6xl items-center gap-8 lg:grid-cols-[1fr_420px_1fr]">
         <div className="grid gap-8">{points.slice(0, 2).map(([num, title, text]) => <InfoBlock key={title} num={num} title={title} text={text} />)}</div>
         <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="group mx-auto w-full max-w-[420px] overflow-hidden rounded-[30px] border border-white/10 bg-studio-panel shadow-chrome">
-          <img className="aspect-[4/5] w-full object-cover grayscale transition-transform duration-[1800ms] group-hover:scale-[1.045]" src={djImages.booth} alt="Dark DJ booth" />
+          <img className="aspect-[4/5] w-full object-cover grayscale transition-transform duration-[2400ms] group-hover:scale-[1.035]" src={djImages.booth} alt="Dark DJ booth" />
         </motion.div>
         <div className="grid gap-8">{points.slice(2).map(([num, title, text]) => <InfoBlock key={title} num={num} title={title} text={text} />)}</div>
       </div>
@@ -328,7 +328,7 @@ function Equipment() {
     <section id="equipment" className="px-5 py-24 md:py-32">
       <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }} className="mx-auto grid max-w-6xl overflow-hidden rounded-[34px] border border-white/10 bg-[#141414] shadow-chrome lg:grid-cols-[0.95fr_1.05fr]">
         <div className="group min-h-[390px] overflow-hidden bg-black">
-          <img className="h-full w-full object-cover grayscale transition-transform duration-[1800ms] group-hover:scale-[1.045]" src={djImages.mixer} alt="DJ mixer and player setup" />
+          <img className="h-full w-full object-cover grayscale transition-transform duration-[2400ms] group-hover:scale-[1.035]" src={djImages.mixer} alt="DJ mixer and player setup" />
         </div>
         <div className="p-8 md:p-14 lg:p-16">
           <div className="mb-8 h-px w-14 bg-white/70" />
@@ -354,13 +354,13 @@ function FAQItem({ question, answer }) {
     <motion.div layout className="overflow-hidden rounded-2xl border border-white/[0.06] bg-[#151515]">
       <button onClick={() => setOpen(!open)} className="flex w-full items-center justify-between gap-4 px-5 py-6 text-left text-base font900 uppercase text-white md:px-7">
         {question}
-        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.35 }} className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/[0.12]">
+        <motion.span animate={{ rotate: open ? 180 : 0 }} transition={{ duration: 0.46, ease: [0.16, 1, 0.3, 1] }} className="grid h-8 w-8 shrink-0 place-items-center rounded-lg bg-white/[0.12]">
           <ChevronDown size={18} />
         </motion.span>
       </button>
       <AnimatePresence initial={false}>
         {open && (
-          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1] }}>
+          <motion.div initial={{ height: 0, opacity: 0 }} animate={{ height: "auto", opacity: 1 }} exit={{ height: 0, opacity: 0 }} transition={{ duration: 0.62, ease: [0.16, 1, 0.3, 1] }}>
             <p className="px-5 pb-6 text-base leading-8 text-studio-muted md:px-7">{answer}</p>
           </motion.div>
         )}
@@ -475,7 +475,7 @@ function BookingModal({ open, onClose }) {
             initial={{ y: 28, scale: 0.985 }}
             animate={{ y: 0, scale: 1 }}
             exit={{ y: 18, scale: 0.985 }}
-            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            transition={{ duration: 0.58, ease: [0.16, 1, 0.3, 1] }}
           >
             <button
               type="button"
