@@ -180,20 +180,20 @@ function ServiceCardShell({ service, index, total, progress }) {
   const Icon = service.icon;
   const segment = 1 / total;
   const start = index * segment;
-  const enterEnd = start + segment * 0.35;
-  const holdEnd = start + segment * 0.65;
+  const enterEnd = start + segment * 0.48;
+  const holdEnd = start + segment * 0.78;
   const exitEnd = start + segment;
-  const previousHoldEnd = Math.max(0, start - segment * 0.35);
+  const previousHoldEnd = Math.max(0, start - segment * 0.48);
   const previousExitEnd = Math.max(0, start);
-  const olderLift = -28 * Math.max(total - index - 1, 0);
+  const olderLift = -22 * Math.max(total - index - 1, 0);
 
   const y = index === 0
-    ? useTransform(progress, [0, holdEnd, exitEnd, 1], ["0px", "0px", "-32px", `${olderLift}px`])
-    : useTransform(progress, [0, previousHoldEnd, start, enterEnd, holdEnd, exitEnd, 1], ["110vh", "110vh", "110vh", "0px", "0px", "-32px", `${olderLift}px`]);
+    ? useTransform(progress, [0, holdEnd, exitEnd, 1], ["0px", "0px", "-24px", `${olderLift}px`])
+    : useTransform(progress, [0, previousHoldEnd, start, enterEnd, holdEnd, exitEnd, 1], ["118vh", "118vh", "118vh", "0px", "0px", "-24px", `${olderLift}px`]);
 
   const scale = index === 0
-    ? useTransform(progress, [0, holdEnd, exitEnd, 1], [1, 1, 0.97, 0.94])
-    : useTransform(progress, [0, previousHoldEnd, start, enterEnd, holdEnd, exitEnd, 1], [1, 1, 1, 1, 1, 0.97, 0.94]);
+    ? useTransform(progress, [0, holdEnd, exitEnd, 1], [1, 1, 0.985, 0.955])
+    : useTransform(progress, [0, previousHoldEnd, start, enterEnd, holdEnd, exitEnd, 1], [1, 1, 1, 1, 1, 0.985, 0.955]);
 
   return (
     <motion.article
@@ -256,9 +256,10 @@ function Services() {
     offset: ["start start", "end end"]
   });
   const smoothProgress = useSpring(scrollYProgress, {
-    stiffness: 42,
-    damping: 34,
-    mass: 1.15
+    stiffness: 28,
+    damping: 38,
+    mass: 1.45,
+    restDelta: 0.0008
   });
 
   return (

@@ -74,7 +74,7 @@ body {
 }
 
 .services-scroll-stage {
-  height: 440vh;
+  height: 560vh;
 }
 
 .services-sticky-viewport {
@@ -166,7 +166,7 @@ body {
 
 @media (max-width: 767px) {
   .services-scroll-stage {
-    height: 440vh;
+    height: 540vh;
   }
 
   .services-sticky-viewport {
